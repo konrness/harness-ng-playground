@@ -26,5 +26,9 @@ featureFlags:
           onVariation: "true"
           offVariation: "false"
         state: "on"
+        targetRules:
+        - targets:
+          - identifier: Konr
+          variation: "false"
   projectIdentifier: Konr_Test
   orgIdentifier: default
