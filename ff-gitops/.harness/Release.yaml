@@ -1,0 +1,55 @@
+pipeline:
+    name: Release
+    identifier: Release
+    tags: {}
+    stages:
+        - stage:
+              name: Release
+              identifier: Release
+              description: ""
+              type: FeatureFlag
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: FlagConfiguration
+                                name: Enable in Local
+                                identifier: Enable_in_Local
+                                spec:
+                                    feature: First_Flag
+                                    environment: Local
+                                    instructions:
+                                        - identifier: SetFeatureFlagStateIdentifier
+                                          type: SetFeatureFlagState
+                                          spec:
+                                              state: "on"
+                                timeout: 10m
+                          - step:
+                                type: HarnessApproval
+                                name: Approval
+                                identifier: Approval
+                                spec:
+                                    approvalMessage: Please review the following information and approve the pipeline progression
+                                    includePipelineExecutionHistory: true
+                                    approvers:
+                                        userGroups:
+                                            - Approvers
+                                        minimumCount: 1
+                                        disallowPipelineExecutor: false
+                                    approverInputs: []
+                                timeout: 1d
+                          - step:
+                                type: FlagConfiguration
+                                name: Enable in Test
+                                identifier: Enable_in_Test
+                                spec:
+                                    feature: First_Flag
+                                    environment: Test
+                                    instructions:
+                                        - identifier: SetFeatureFlagStateIdentifier
+                                          type: SetFeatureFlagState
+                                          spec:
+                                              state: "on"
+                                timeout: 10m
+    projectIdentifier: Konr_Test
+    orgIdentifier: default
