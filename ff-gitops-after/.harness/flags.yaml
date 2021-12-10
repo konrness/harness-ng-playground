@@ -1,0 +1,62 @@
+featureFlags:
+  flags:
+  - flag:
+      name: Test Boolean
+      identifier: Test_Boolean
+      description: ""
+      permanent: false
+      spec:
+        type: boolean
+        default:
+          onVariation: "true"
+          offVariation: "false"
+        variations:
+        - identifier: "true"
+          value: "true"
+        - identifier: "false"
+          value: "false"
+      environments:
+      - identifier: Dev
+        default:
+          onVariation: "true"
+          offVariation: "false"
+        state: "off"
+      - identifier: Prod
+        default:
+          onVariation: "true"
+          offVariation: "false"
+        state: "on"
+        targetRules:
+        - targets:
+          - identifier: customer1
+          variation: "true"
+  - flag:
+      name: Test Multivariate
+      identifier: Test_Multivariate
+      description: ""
+      permanent: false
+      spec:
+        type: string
+        default:
+          onVariation: One
+          offVariation: Three
+        variations:
+        - identifier: One
+          value: "1"
+        - identifier: Two
+          value: "2"
+        - identifier: Three
+          value: "3"
+      environments:
+      - identifier: Dev
+        default:
+          onVariation: One
+          offVariation: Three
+        state: "off"
+      - identifier: Prod
+        default:
+          onVariation: One
+          offVariation: Three
+        state: "off"
+  projectIdentifier: Konr_Git_After_Setup
+  orgIdentifier: default
