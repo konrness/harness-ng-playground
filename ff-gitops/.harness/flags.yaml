@@ -50,7 +50,7 @@ featureFlags:
         default:
           onVariation: "true"
           offVariation: "false"
-        state: "on"
+        state: "off"
       - identifier: Test
         default:
           onVariation: "true"
