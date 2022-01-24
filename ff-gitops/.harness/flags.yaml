@@ -30,6 +30,9 @@ featureFlags:
         - targets:
           - identifier: Konr
           variation: "false"
+        - targetGroups:
+          - identifier: Test
+          variation: "true"
   - flag:
       name: Secret Flag
       identifier: Secret_Flag
