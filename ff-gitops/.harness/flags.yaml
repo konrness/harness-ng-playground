@@ -56,9 +56,24 @@ featureFlags:
         state: "off"
       - identifier: Test
         default:
-          onVariation: "true"
+          onVariation: "false"
           offVariation: "false"
         state: "on"
+        rules:
+        - priority: 1
+          serve:
+            distribution:
+              bucketBy: identifier
+              variations:
+              - weight: 10
+                variation: "true"
+              - weight: 90
+                variation: "false"
+          clauses:
+          - attribute: ""
+            op: segmentMatch
+            values:
+            - Test
   - flag:
       name: Secret Flag
       identifier: Secret_Flag
