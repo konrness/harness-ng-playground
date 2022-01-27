@@ -74,6 +74,10 @@ featureFlags:
             op: segmentMatch
             values:
             - Test
+        targetRules:
+        - targets:
+          - identifier: Harness1
+          variation: "true"
   - flag:
       name: Secret Flag
       identifier: Secret_Flag
