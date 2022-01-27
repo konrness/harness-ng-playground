@@ -1,0 +1,49 @@
+pipeline:
+    name: Feature Release
+    identifier: Feature_Release
+    projectIdentifier: Konr_Test
+    orgIdentifier: default
+    tags: {}
+    stages:
+        - stage:
+              name: Release to Dev
+              identifier: Release_to_Dev
+              description: ""
+              type: FeatureFlag
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: FlagConfiguration
+                                name: Enable Flag in Dev
+                                identifier: Enable_Flag_in_Dev
+                                spec:
+                                    feature: <+input>
+                                    environment: Test
+                                    instructions: <+input>
+                                timeout: 10m
+        - stage:
+              name: Approve Release to Prod
+              identifier: Approve_Release_to_Prod
+              description: ""
+              type: Approval
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                name: Approval
+                                identifier: approval
+                                type: HarnessApproval
+                                timeout: 1d
+                                spec:
+                                    approvalMessage: |-
+                                        Please review the following information
+                                        and approve the pipeline progression
+                                    includePipelineExecutionHistory: true
+                                    approvers:
+                                        minimumCount: 1
+                                        disallowPipelineExecutor: false
+                                        userGroups:
+                                            - Approvers
+                                    approverInputs: []
+              tags: {}
