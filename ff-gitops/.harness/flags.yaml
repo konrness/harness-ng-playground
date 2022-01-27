@@ -15,6 +15,10 @@ featureFlags:
           value: "true"
         - identifier: "false"
           value: "false"
+      prerequisites:
+      - flagIdentifier: First_Flag
+        variations:
+        - "true"
       environments:
       - identifier: Local
         default:
