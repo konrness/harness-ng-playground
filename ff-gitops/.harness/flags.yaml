@@ -77,7 +77,7 @@ featureFlags:
         targetRules:
         - targets:
           - identifier: Harness1
-          variation: "true"
+          variation: "false"
   - flag:
       name: Secret Flag
       identifier: Secret_Flag
