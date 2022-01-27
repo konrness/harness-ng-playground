@@ -47,3 +47,20 @@ pipeline:
                                             - Approvers
                                     approverInputs: []
               tags: {}
+        - stage:
+              name: Release to Prod
+              identifier: Release_to_Prod
+              description: ""
+              type: FeatureFlag
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: FlagConfiguration
+                                name: Enable Flag in Prod
+                                identifier: Enable_Flag_in_Prod
+                                spec:
+                                    feature: <+input>
+                                    environment: Local
+                                    instructions: <+input>
+                                timeout: 10m
