@@ -29,7 +29,7 @@ featureFlags:
         default:
           onVariation: "true"
           offVariation: "false"
-        state: "off"
+        state: "on"
   - flag:
       name: First Flag
       identifier: First_Flag
@@ -57,12 +57,12 @@ featureFlags:
           offVariation: "false"
         state: "off"
         targetRules:
-        - targetGroups:
-          - identifier: Test
-          variation: "true"
         - targets:
           - identifier: Konr
           variation: "false"
+        - targetGroups:
+          - identifier: Test
+          variation: "true"
   - flag:
       name: Progressive Flag
       identifier: Progressive_Flag
