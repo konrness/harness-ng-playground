@@ -55,14 +55,14 @@ featureFlags:
         default:
           onVariation: "true"
           offVariation: "false"
-        state: "on"
+        state: "off"
         targetRules:
-        - targets:
-          - identifier: Konr
-          variation: "false"
         - targetGroups:
           - identifier: Test
           variation: "true"
+        - targets:
+          - identifier: Konr
+          variation: "false"
   - flag:
       name: Progressive Flag
       identifier: Progressive_Flag
