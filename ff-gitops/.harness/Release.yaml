@@ -33,7 +33,7 @@ pipeline:
                                         minimumCount: 1
                                         disallowPipelineExecutor: false
                                     approverInputs: []
-                                timeout: 1d
+                                timeout: 2d
                           - step:
                                 type: FlagConfiguration
                                 name: Enable in Test
